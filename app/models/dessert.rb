@@ -1,17 +1,20 @@
 class Dessert
-    attr_reader :name, :bakery
+    attr_reader :name
     attr_accessor :ingredients
 
     @@all = []
-    def initialize(name, bakery)
+    def initialize(name, ingredients = [])
         @name = name
-        @bakery = bakery
-        @ingredients = []
+        @ingredients = ingredients
         @@all << self
     end
 
+    def add_to_bakery(bakery)
+        bakery.add_dessert(self)
+    end
+
     def add_ingredient(ingredient)
-        #should I check to see if ingredient already exists or should I pass in ingredient object instead of creating new ingredient object
+        #pass in ingredient object
         self.ingredients << ingredient
     end
 
@@ -20,7 +23,7 @@ class Dessert
     end
 
     def calories
-        @ingredients.map { |ingredient| ingredient.calorie_count }.sum
+        self.ingredients.map { |ingredient| ingredient.calorie_count }.sum
     end
 
     def self.all 

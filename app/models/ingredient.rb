@@ -8,6 +8,15 @@ class Ingredient
         @@all << self
     end
 
+    def dessert
+        Dessert.all.find {|d| d.ingredients.include?(self)}
+    end
+
+    def bakery
+        allDessertsWithThisIngredient = Dessert.all.find_all {|d| d.ingredients.include?(self)}
+        Bakery.all.find {|b| (b.desserts & allDessertsWithThisIngredient)}
+    end
+
     def self.all
         @@all 
     end

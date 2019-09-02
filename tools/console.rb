@@ -20,20 +20,26 @@ alycia.take_trip(gaTerrace)
 chris.take_trip(loewsHotel)
 ron.take_trip(fourSeasonsAtl)
 
-flatiron = Bakery.new("Flatiron Bakery")
-yummy_time = Bakery.new("Yummy Time")
-
-cake = Dessert.new("Chocolate Cake", flatiron)
-cookies = Dessert.new("Cookies", yummy_time)
-
 egg = Ingredient.new("Egg", 50)
 flour = Ingredient.new("Flour")
+sugar = Ingredient.new("Sugar", 200)
+butter = Ingredient.new("Butter", 75)
+milk = Ingredient.new("Milk", 60)
 chocolate = Ingredient.new("Chocolate", 200)
-chips = Ingredient.new("Chips")
+chocolateChips = Ingredient.new("Chocolate Chips", 80)
 peanuts = Ingredient.new("Peanuts", 50)
 
-cookies.add_ingredients([egg, flour, chocolate, chips])
-cake.add_ingredients([egg, flour, chocolate,])
+cake = Dessert.new("Chocolate Cake", [egg, flour, sugar, butter, milk, chocolate])
+cookies = Dessert.new("Cookies", [egg, flour, chocolate, chocolateChips, butter, sugar])
+
+flatiron = Bakery.new("Flatiron Bakery")
+yummyTime = Bakery.new("Yummy Time")
+
+flatiron.add_dessert(cake)
+flatiron.add_dessert(cookies)
+yummyTime.add_dessert(cake)
+
+
 
 #
 
