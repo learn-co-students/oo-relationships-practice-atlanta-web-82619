@@ -4,22 +4,25 @@ def reload
   load 'config/environment.rb'
 end
 
-flatiron = Bakery.new("Flatiron Bakery")
-yummy_time = Bakery.new("Yummy Time")
+# AIRBNB #
+guest1 = Guest.new("Hanaa")
+guest2 = Guest.new("Alex")
+guest3 = Guest.new("Mark")
+guest4 = Guest.new("Nick")
 
-cake = Dessert.new("Chocolate Cake", flatiron)
-cookies = Dessert.new("Cookies", yummy_time)
+listing1 = Listing.new("Atlanta")
+listing2 = Listing.new("Houston")
+listing3 = Listing.new("NYC")
+listing4 = Listing.new("Atlanta")
 
-egg = Ingredient.new("Egg", 50, cake)
-flour = Ingredient.new("Flour", 100, cake)
-chocolate = Ingredient.new("Chocolate", 200, cake)
+trip1 = Trip.new(listing1, guest1)
+trip2 = Trip.new(listing2, guest1)
+trip3 = Trip.new(listing1, guest2)
 
-chips = Ingredient.new("Chips", 100, cookies)
-peanuts = Ingredient.new("Peanuts", 50, cookies)
+###############
+###############
+###############
 
-# chips.bakery
-
-# puts chips.name == "Chips"
 
 binding.pry
 0
