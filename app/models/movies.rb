@@ -23,4 +23,15 @@ class Movies
     arr.max_by {|i| arr.count(i)}.title
   end
 
+  # for fun: age of actor when they did a certain movie
+  def actor_age(actor_name)
+    age = 0
+    Characters.all.each do |chars|
+      if chars.feature_title.title == self.title && chars.actor.name == actor_name
+        age = chars.feature_title.year - chars.actor.dob
+      end
+    end
+    age
+  end
+
 end
